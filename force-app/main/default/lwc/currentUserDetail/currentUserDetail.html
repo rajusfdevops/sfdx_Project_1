@@ -1,0 +1,20 @@
+<template>
+    <template if:true={hasAccess}>
+        <lightning-card title="User Details">
+            <div class="slds-m-around_medium">
+                <template if:true={hasUserDetails}>
+                    <p><strong>Name:</strong> {UserName}</p>
+                    <p><strong>Role:</strong> {userRoleName}</p>
+                    <p><strong>Manager:</strong> {userManagerName}</p>
+                    <p><strong>Profile:</strong> {userProfileName}</p>
+                </template>
+                <template if:false={hasUserDetails}>
+                    <p>Loading user details...</p>
+                </template>
+            </div>
+        </lightning-card>
+    </template>
+    <template if:false={hasAccess}>
+        <p class="slds-text-color_error">You do not have access to view this information.</p>
+    </template>
+</template>

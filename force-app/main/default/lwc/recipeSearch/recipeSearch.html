@@ -16,9 +16,9 @@
           <lightning-input
             name="enter-search"
             type="search"
-            placeholder="Search recipe by ingredients"
+            placeholder="Search recipe by ingredients or ID"
             variant="label-hidden"
-            class="ingredient-input"
+            class="search-input"
           ></lightning-input>
         </lightning-layout-item>
         <lightning-layout-item size="4" padding="horizontal-medium">
@@ -26,7 +26,7 @@
             <lightning-layout-item padding="horizontal-medium">
               <lightning-button
                 label="Search"
-                onclick={fetchRecipesByIngredients}
+                onclick={handleSearch}
               ></lightning-button>
             </lightning-layout-item>
             <lightning-layout-item>
