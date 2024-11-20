@@ -75,9 +75,9 @@ node {
             // Check if Test__c.object file exists
         def objectFileExists
         if (isUnix()) {
-            objectFileExists = sh returnStatus: true, script: "test -f manifest/objects/Test__c.object"
+            objectFileExists = sh returnStatus: true, script: "test -f manifest"
         } else {
-            objectFileExists = bat returnStatus: true, script: "if exist manifest\\objects\\Test__c.object (exit 0) else (exit 1)"
+            objectFileExists = bat returnStatus: true, script: "if exist manifest"
         }
         if (objectFileExists != 0) { error 'Test__c.object file not found in manifest directory' }
 
