@@ -47,6 +47,19 @@ node {
 
             println rc
 
+            // List the contents of the manifest directory
+            stage('List Manifest Directory') {
+                steps {
+                    script {
+                        if (isUnix()) {
+                            sh 'ls -la manifest/'
+                        } else {
+                            bat 'dir manifest\\'
+                        }
+                    }
+                }
+            }
+
             // Deploy metadata to Dev2
             def rmsg
             if (isUnix()) {
@@ -72,14 +85,14 @@ node {
 
             println rc
 
-            // Check if Test__c.object file exists
-        def objectFileExists
-        if (isUnix()) {
-            objectFileExists = sh returnStatus: true, script: "test -f manifest"
-        } else {
-            objectFileExists = bat returnStatus: true, script: "if exist manifest"
-        }
-        if (objectFileExists != 0) { error 'Test__c.object file not found in manifest directory' }
+            // Check if MyCustomObject__c.object file exists
+            def objectFileExists
+            if (isUnix()) {
+                objectFileExists = sh returnStatus: true, script: "test -f manifest/objects/MyCustomObject__c.object"
+            } else {
+                objectFileExists = bat returnStatus: true, script: "if exist manifest\\objects\\MyCustomObject__c.object (exit 0) else (exit 1)"
+            }
+            if (objectFileExists != 0) { error 'MyCustomObject__c.object file not found in manifest directory' }
 
             // Deploy metadata to Test2
             def rmsg
