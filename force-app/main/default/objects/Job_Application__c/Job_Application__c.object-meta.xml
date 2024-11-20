@@ -40,27 +40,25 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
-    <allowInChatterGroups>true</allowInChatterGroups>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <enableActivities>true</enableActivities>
+    <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
-    <enableHistory>true</enableHistory>
+    <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>Private</externalSharingModel>
-    <label>Project</label>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <label>Job Application</label>
     <nameField>
-        <displayFormat>PRO-{0000}</displayFormat>
-        <label>Project Name</label>
-        <trackHistory>false</trackHistory>
-        <type>AutoNumber</type>
+        <label>Job Application Name</label>
+        <type>Text</type>
     </nameField>
-    <pluralLabel>Projects</pluralLabel>
+    <pluralLabel>Job Applications</pluralLabel>
     <searchLayouts></searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>
