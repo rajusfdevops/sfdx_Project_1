@@ -165,7 +165,7 @@
         },
         "CustomTab__Project__c": {
             "serverRevisionCounter": 13,
-            "lastRetrievedFromServer": null,
+            "lastRetrievedFromServer": 13,
             "memberType": "CustomTab",
             "isNameObsolete": false
         },

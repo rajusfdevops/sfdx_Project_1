@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Num_Hang_ups__c</fullName>
+    <description>The number of members that hung up the phone.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The number of members that hung up the phone.</inlineHelpText>
+    <label># Hang-ups</label>
+    <summaryFilterItems>
+        <field>CampaignMember.Hang_up__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryForeignKey>CampaignMember.CampaignId</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <type>Summary</type>
+</CustomField>
