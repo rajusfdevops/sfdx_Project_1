@@ -48,16 +48,10 @@ node {
             println rc
 
             // List the contents of the manifest directory
-            stage('List Manifest Directory') {
-                steps {
-                    script {
-                        if (isUnix()) {
-                            sh 'ls -la manifest/'
-                        } else {
-                            bat 'dir manifest\\'
-                        }
-                    }
-                }
+            if (isUnix()) {
+                sh 'ls -la manifest/'
+            } else {
+                bat 'dir manifest\\'
             }
 
             // Deploy metadata to Dev2
