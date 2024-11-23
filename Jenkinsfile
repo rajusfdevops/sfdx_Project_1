@@ -49,17 +49,17 @@ node {
 
             // List the contents of the manifest directory
             if (isUnix()) {
-                sh 'ls -la manifest/'
+                sh 'ls -la force-app/main/default/objects/'
             } else {
-                bat 'dir manifest\\'
+                bat 'dir force-app\\main\\default\\objects\\'
             }
 
             // Deploy metadata to Dev2
             def rmsg
             if (isUnix()) {
-                rmsg = sh returnStdout: true, script: "${toolbelt} force:mdapi:deploy -d manifest/. -u ${DEV2_HUB_ORG}"
+                rmsg = sh returnStdout: true, script: "${toolbelt} force:mdapi:deploy -d force-app/main/default -u ${DEV2_HUB_ORG}"
             } else {
-                rmsg = bat returnStdout: true, script: "\"${toolbelt}\" force:mdapi:deploy -d manifest/. -u ${DEV2_HUB_ORG}"
+                rmsg = bat returnStdout: true, script: "\"${toolbelt}\" force:mdapi:deploy -d force-app\\main\\default -u ${DEV2_HUB_ORG}"
             }
 
             println rmsg
@@ -82,18 +82,18 @@ node {
             // Check if MyCustomObject__c.object file exists
             def objectFileExists
             if (isUnix()) {
-                objectFileExists = sh returnStatus: true, script: "test -f manifest/objects/MyCustomObject__c.object"
+                objectFileExists = sh returnStatus: true, script: "test -f force-app/main/default/objects/MyCustomObject__c.object"
             } else {
-                objectFileExists = bat returnStatus: true, script: "if exist manifest\\objects\\MyCustomObject__c.object (exit 0) else (exit 1)"
+                objectFileExists = bat returnStatus: true, script: "if exist force-app\\main\\default\\objects\\MyCustomObject__c.object (exit 0) else (exit 1)"
             }
-            if (objectFileExists != 0) { error 'MyCustomObject__c.object file not found in manifest directory' }
+            if (objectFileExists != 0) { error 'MyCustomObject__c.object file not found in force-app/main/default/objects directory' }
 
             // Deploy metadata to Test2
             def rmsg
             if (isUnix()) {
-                rmsg = sh returnStdout: true, script: "${toolbelt} force:mdapi:deploy -d manifest/. -u ${TEST2_HUB_ORG}"
+                rmsg = sh returnStdout: true, script: "${toolbelt} force:mdapi:deploy -d force-app/main/default -u ${TEST2_HUB_ORG}"
             } else {
-                rmsg = bat returnStdout: true, script: "\"${toolbelt}\" force:mdapi:deploy -d manifest/. -u ${TEST2_HUB_ORG}"
+                rmsg = bat returnStdout: true, script: "\"${toolbelt}\" force:mdapi:deploy -d force-app\\main\\default -u ${TEST2_HUB_ORG}"
             }
 
             println rmsg
