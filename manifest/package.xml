@@ -10,6 +10,7 @@
     </types>
     <types>
         <members>*</members>
+        <members>MyCustomObject__c</members>
         <name>CustomObject</name>
     </types>
     <version>53.0</version>

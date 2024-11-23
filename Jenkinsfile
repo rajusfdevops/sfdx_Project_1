@@ -47,7 +47,7 @@ node {
 
             println rc
 
-            // List the contents of the manifest directory
+            // List the contents of the objects directory
             if (isUnix()) {
                 sh 'ls -la force-app/main/default/objects/'
             } else {
